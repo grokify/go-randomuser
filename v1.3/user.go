@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/grokify/gotilla/type/stringsutil"
 	"github.com/grokify/oauth2more/scim"
+	"github.com/grokify/simplego/type/stringsutil"
 )
 
 type User struct {

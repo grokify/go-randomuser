@@ -46,10 +46,11 @@ func GetUsers(qry *Request) (Results, *http.Response, error) {
 		if qry.Gender == "male" || qry.Gender == "female" {
 			query.Add("gender", qry.Gender)
 		}
-		qry.Seed = strings.TrimSpace(qry.Seed)
+
 		if len(qry.Seed) > 0 {
 			query.Add("seed", qry.Seed)
 		}
+
 		passwordParts := []string{}
 		if qry.PasswordSettings.Special {
 			passwordParts = append(passwordParts, "special")
@@ -93,6 +94,7 @@ func GetUsers(qry *Request) (Results, *http.Response, error) {
 			apiURL += "?" + qryStr
 		}
 	}
+
 	res := Results{}
 	resp, err := http.Get(apiURL)
 	if err != nil {
