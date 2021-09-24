@@ -14,7 +14,7 @@ func main() {
 	users, _, err := randomuser.GetUsers(&randomuser.Request{
 		Count:   1,
 		Seed:    "abc",
-		Country: "us"})
+		Country: randomuser.CountryUnitedStates})
 	if err != nil {
 		log.Fatal(err)
 	}

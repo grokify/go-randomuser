@@ -1,0 +1,21 @@
+package randomuser // import "github.com/grokify/go-randomuser/v1.3"
+
+const (
+	CountryAustralia     = "AU"
+	CountryBrazil        = "BR"
+	CountryCanada        = "CA"
+	CountryDenmark       = "DK"
+	CountryFinland       = "FI"
+	CountryFrance        = "FR"
+	CountryGermany       = "DE"
+	CountryIran          = "IR"
+	CountryIreland       = "IE"
+	CountryNetherlands   = "NL"
+	CountryNewZealand    = "NZ"
+	CountryNorway        = "NO"
+	CountrySpain         = "ES"
+	CountrySwitzerland   = "CH"
+	CountryTurkey        = "TR"
+	CountryUnitedKingdom = "GB"
+	CountryUnitedStates  = "US"
+)
