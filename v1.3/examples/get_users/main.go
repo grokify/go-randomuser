@@ -3,18 +3,62 @@ package main
 import (
 	"fmt"
 	"log"
+	"math/rand"
+	"strings"
+	"time"
 
 	randomuser "github.com/grokify/go-randomuser/v1.3"
 	"github.com/grokify/oauth2more/hubspot"
 	"github.com/grokify/oauth2more/scim"
+	"github.com/grokify/simplego/encoding/jsonutil"
 	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/jessevdk/go-flags"
 )
 
+type Options struct {
+	Number    int      `short:"N" long:"number" description:"Number of users to create"`
+	Countries []string `short:"C" long:"country" description:"Countries"`
+	JSONFile  string   `short:"J" long:"jsonfile" description:"Create XLSX file"`
+	XSLXFile  string   `short:"X" long:"xlsxfile" description:"Create XLSX file"`
+	Seed      string   `short:"S" long:"seed" description:"Seed"`
+}
+
+func (opts *Options) OneCountry() (string, error) {
+	if len(opts.Countries) == 0 {
+		return randomuser.RandomCountry(), nil
+	} else if len(opts.Countries) == 1 {
+		if randomuser.IsCountry(opts.Countries[0]) {
+			return strings.ToUpper(opts.Countries[0]), nil
+		}
+		return "", fmt.Errorf("not a valid country [%s]", opts.Countries[0])
+	}
+	rand.Seed(time.Now().Unix())
+	c := opts.Countries[rand.Intn(len(opts.Countries))]
+	if !randomuser.IsCountry(c) {
+		return "", fmt.Errorf("not a valid country [%s]", c)
+	}
+	return strings.ToUpper(c), nil
+}
+
 func main() {
+	opts := Options{}
+	_, err := flags.Parse(&opts)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	c, err := opts.OneCountry()
+	if err != nil {
+		log.Fatal(err)
+	}
+	if opts.Number < 1 {
+		opts.Number = 1
+	}
+
 	users, _, err := randomuser.GetUsers(&randomuser.Request{
-		Count:   1,
-		Seed:    "abc",
-		Country: randomuser.CountryUnitedStates})
+		Count:   uint16(opts.Number),
+		Seed:    opts.Seed,
+		Country: c})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -25,11 +69,19 @@ func main() {
 		fmtutil.PrintJSON(sc)
 		scims = append(scims, sc)
 	}
-	outfile := "_contacts_x.xlsx"
-	err = hubspot.WriteContactsXLSX(outfile, scims)
-	if err != nil {
-		log.Fatal(err)
+	if len(opts.JSONFile) > 0 {
+		err := jsonutil.WriteFile(opts.JSONFile, scims, "", "  ", 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("WROTE [%s]\n", opts.JSONFile)
 	}
-	fmt.Printf("WROTE [%s]\n", outfile)
+	if len(opts.XSLXFile) > 0 {
+		err = hubspot.WriteContactsXLSX(opts.XSLXFile, scims)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("WROTE [%s]\n", opts.XSLXFile)
+	}
 	fmt.Println("DONE")
 }
