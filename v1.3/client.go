@@ -108,8 +108,6 @@ func GetUsers(qry *Request) (Results, *http.Response, error) {
 		return res, resp, err
 	}
 
-	// fmt.Println(string(bytes))
-
 	err = json.Unmarshal(bytes, &res)
 	return res, resp, err
 }

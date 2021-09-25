@@ -264,8 +264,8 @@ github.com/grokify/gocharts v1.15.0/go.mod h1:2o+DSCfc9SHRbRTl4A5qn6GfmOPFBO/j3B
 github.com/grokify/gocharts v1.16.1 h1:b/5kudcUdIzpwuMyN5bUBTH2gSZsgfVY9V38IVSXKQE=
 github.com/grokify/gocharts v1.16.1/go.mod h1:cG9ulpA5WiK/sIGUP8s9qzrX4OxPzbiY2AtGvlNxx1A=
 github.com/grokify/gostor v0.2.1/go.mod h1:4a6v+pcFFt4uxHThTcCcarL48EkMPe5Fc/0NvCQAifY=
-github.com/grokify/oauth2more v0.7.2 h1:BZbOGq5sesqEWINvxFaiGGAzPT/f5qF5CS0/+L3V9e0=
-github.com/grokify/oauth2more v0.7.2/go.mod h1:+Fas/uIZP309EAoAdiwlrGieJHbsz1hz1b+zs/iP+dg=
+github.com/grokify/oauth2more v0.7.5 h1:qKDZkkKzPCvumWgkBd96Cc+mqryqTDzCHoQuZeZplQc=
+github.com/grokify/oauth2more v0.7.5/go.mod h1:+Fas/uIZP309EAoAdiwlrGieJHbsz1hz1b+zs/iP+dg=
 github.com/grokify/simplego v0.27.2/go.mod h1:UKobvO2/X3aFy5fwNUxaW6YFK8A3IKCoIRqtVNhsdZU=
 github.com/grokify/simplego v0.30.0/go.mod h1:UKobvO2/X3aFy5fwNUxaW6YFK8A3IKCoIRqtVNhsdZU=
 github.com/grokify/simplego v0.30.2/go.mod h1:UKobvO2/X3aFy5fwNUxaW6YFK8A3IKCoIRqtVNhsdZU=

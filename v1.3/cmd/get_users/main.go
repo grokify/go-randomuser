@@ -11,7 +11,6 @@ import (
 	"github.com/grokify/oauth2more/hubspot"
 	"github.com/grokify/oauth2more/scim"
 	"github.com/grokify/simplego/encoding/jsonutil"
-	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 )
 
@@ -62,22 +61,24 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// fmtutil.PrintJSON(users)
-	scims := []scim.User{}
+
+	scimSet := scim.UserSet{Users: []scim.User{}}
+
 	for _, usr := range users.Results {
 		sc := usr.Scim()
-		fmtutil.PrintJSON(sc)
-		scims = append(scims, sc)
+		sc.InflateDisplayName(false, false, true)
+		scimSet.Users = append(scimSet.Users, sc)
 	}
+
 	if len(opts.JSONFile) > 0 {
-		err := jsonutil.WriteFile(opts.JSONFile, scims, "", "  ", 0644)
+		err := jsonutil.WriteFile(opts.JSONFile, scimSet, "", "  ", 0644)
 		if err != nil {
 			log.Fatal(err)
 		}
 		fmt.Printf("WROTE [%s]\n", opts.JSONFile)
 	}
 	if len(opts.XSLXFile) > 0 {
-		err = hubspot.WriteContactsXLSX(opts.XSLXFile, scims)
+		err = hubspot.WriteContactsXLSX(opts.XSLXFile, scimSet.Users)
 		if err != nil {
 			log.Fatal(err)
 		}
