@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/grokify/oauth2more/scim"
-	"github.com/grokify/simplego/type/stringsutil"
+	"github.com/grokify/goauth/scim"
+	"github.com/grokify/mogo/type/stringsutil"
 )
 
 type User struct {

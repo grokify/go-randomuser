@@ -3,7 +3,7 @@ package randomuser // import "github.com/grokify/go-randomuser/v1.3"
 import (
 	"strconv"
 
-	"github.com/grokify/oauth2more/scim"
+	"github.com/grokify/goauth/scim"
 )
 
 func UserToScim(rUser User) scim.User {

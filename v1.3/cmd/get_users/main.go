@@ -8,9 +8,9 @@ import (
 	"time"
 
 	randomuser "github.com/grokify/go-randomuser/v1.3"
-	"github.com/grokify/oauth2more/hubspot"
-	"github.com/grokify/oauth2more/scim"
-	"github.com/grokify/simplego/encoding/jsonutil"
+	"github.com/grokify/goauth/hubspot"
+	"github.com/grokify/goauth/scim"
+	"github.com/grokify/mogo/encoding/jsonutil"
 	"github.com/jessevdk/go-flags"
 )
 
