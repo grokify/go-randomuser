@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	ApiURL = "https://randomuser.me/api/"
+	APIURL = "https://randomuser.me/api/"
 )
 
 type Request struct {
@@ -32,7 +32,7 @@ type PasswordSettings struct {
 }
 
 func GetUsers(qry *Request) (Results, *http.Response, error) {
-	apiURL := ApiURL
+	apiURL := APIURL
 	if qry != nil {
 		query := url.Values{}
 		if qry.Count > 0 {

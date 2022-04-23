@@ -13,7 +13,7 @@ import (
 type User struct {
 	Gender      string      `json:"gender,omitempty"`
 	Name        Name        `json:"name,omitempty"`
-	Location    Location    `json:"location,omitepty"`
+	Location    Location    `json:"location,omitempty"`
 	Email       string      `json:"email,omitempty"`
 	Login       Login       `json:"login,omitempty"`
 	DateOfBirth DateOfBirth `json:"dob,omitempty"`

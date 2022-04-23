@@ -3,7 +3,7 @@ package randomuser // import "github.com/grokify/go-randomuser/v1.3"
 type Results struct {
 	Results []User `json:"results,omitempty"`
 	Info    Info   `json:"info,omitempty"`
-	Error   string `json:"error,omitempty`
+	Error   string `json:"error,omitempty"`
 }
 
 type Info struct {

@@ -1,9 +1,9 @@
 package randomuser // import "github.com/grokify/go-randomuser/v1.3"
 
 import (
-	"math/rand"
 	"strings"
-	"time"
+
+	"github.com/grokify/mogo/crypto/randutil"
 )
 
 const (
@@ -26,10 +26,13 @@ const (
 	CountryUnitedStates  = "US"
 )
 
-func RandomCountry() string {
+func RandomCountry() (string, error) {
 	countries := Countries()
-	rand.Seed(time.Now().Unix())
-	return countries[rand.Intn(len(countries))]
+	rnd, err := randutil.CryptoRandInt64(nil, int64(len(countries)))
+	if err != nil {
+		return "", err
+	}
+	return countries[rnd], nil
 }
 
 func Countries() []string {

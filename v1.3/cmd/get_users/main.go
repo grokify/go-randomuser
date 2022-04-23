@@ -10,6 +10,7 @@ import (
 	randomuser "github.com/grokify/go-randomuser/v1.3"
 	"github.com/grokify/goauth/hubspot"
 	"github.com/grokify/goauth/scim"
+	"github.com/grokify/mogo/crypto/randutil"
 	"github.com/grokify/mogo/encoding/jsonutil"
 	"github.com/jessevdk/go-flags"
 )
@@ -24,15 +25,19 @@ type Options struct {
 
 func (opts *Options) OneCountry() (string, error) {
 	if len(opts.Countries) == 0 {
-		return randomuser.RandomCountry(), nil
+		return randomuser.RandomCountry()
 	} else if len(opts.Countries) == 1 {
 		if randomuser.IsCountry(opts.Countries[0]) {
 			return strings.ToUpper(opts.Countries[0]), nil
 		}
 		return "", fmt.Errorf("not a valid country [%s]", opts.Countries[0])
 	}
+	rnd, err := randutil.CryptoRandInt64(nil, int64(len(opts.Countries)))
+	if err != nil {
+		return "", err
+	}
 	rand.Seed(time.Now().Unix())
-	c := opts.Countries[rand.Intn(len(opts.Countries))]
+	c := opts.Countries[rnd]
 	if !randomuser.IsCountry(c) {
 		return "", fmt.Errorf("not a valid country [%s]", c)
 	}
