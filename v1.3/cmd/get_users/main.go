@@ -25,17 +25,14 @@ type Options struct {
 
 func (opts *Options) OneCountry() (string, error) {
 	if len(opts.Countries) == 0 {
-		return randomuser.RandomCountry()
+		return randomuser.RandomCountry(), nil
 	} else if len(opts.Countries) == 1 {
 		if randomuser.IsCountry(opts.Countries[0]) {
 			return strings.ToUpper(opts.Countries[0]), nil
 		}
 		return "", fmt.Errorf("not a valid country [%s]", opts.Countries[0])
 	}
-	rnd, err := randutil.CryptoRandInt64(nil, int64(len(opts.Countries)))
-	if err != nil {
-		return "", err
-	}
+	rnd := randutil.Int64n(uint(len(opts.Countries)))
 	rand.Seed(time.Now().Unix())
 	c := opts.Countries[rnd]
 	if !randomuser.IsCountry(c) {

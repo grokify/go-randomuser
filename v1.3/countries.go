@@ -26,13 +26,10 @@ const (
 	CountryUnitedStates  = "US"
 )
 
-func RandomCountry() (string, error) {
+func RandomCountry() string {
 	countries := Countries()
-	rnd, err := randutil.CryptoRandInt64(nil, int64(len(countries)))
-	if err != nil {
-		return "", err
-	}
-	return countries[rnd], nil
+	rnd := randutil.Int64n(uint(len(countries)))
+	return countries[rnd]
 }
 
 func Countries() []string {
