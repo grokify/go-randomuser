@@ -3,7 +3,7 @@ package randomuser // import "github.com/grokify/go-randomuser/v1.3"
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -103,7 +103,7 @@ func GetUsers(qry *Request) (Results, *http.Response, error) {
 		return res, resp, fmt.Errorf("RandomUser API Response Status Code [%d]", resp.StatusCode)
 	}
 
-	bytes, err := ioutil.ReadAll(resp.Body)
+	bytes, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return res, resp, err
 	}
