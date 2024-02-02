@@ -5,8 +5,8 @@ go 1.21
 // toolchain go1.21.1
 
 require (
-	github.com/grokify/goauth v0.20.10
-	github.com/grokify/mogo v0.62.8
+	github.com/grokify/goauth v0.20.11
+	github.com/grokify/mogo v0.63.0
 	github.com/jessevdk/go-flags v1.5.0
 )
 
@@ -14,7 +14,7 @@ require (
 	github.com/golang-jwt/jwt/v5 v5.2.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
-	github.com/grokify/gocharts/v2 v2.17.1 // indirect
+	github.com/grokify/gocharts/v2 v2.18.0 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
