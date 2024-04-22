@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/grokify/goauth/scim"
+	"github.com/grokify/mogo/encoding/jsonutil"
 	"github.com/grokify/mogo/type/stringsutil"
 )
 
@@ -69,12 +70,12 @@ func (user *User) Scim() scim.User {
 }
 
 type Location struct {
-	Street      Street      `json:"street,omitempty"`
-	City        string      `json:"city,omitempty"`
-	State       string      `json:"state,omitempty"`
-	Postcode    string      `json:"postcode,omitempty"`
-	Coordinates Coordinates `json:"coordinates,omitempty"`
-	Timezone    Timezone    `json:"timezone,omitempty"`
+	Street      Street          `json:"street,omitempty"`
+	City        string          `json:"city,omitempty"`
+	State       string          `json:"state,omitempty"`
+	Postcode    jsonutil.String `json:"postcode,omitempty"`
+	Coordinates Coordinates     `json:"coordinates,omitempty"`
+	Timezone    Timezone        `json:"timezone,omitempty"`
 }
 
 type Street struct {

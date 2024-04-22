@@ -29,7 +29,7 @@ func UserToScim(rUser User) scim.User {
 			StreetAddress: rUser.Location.Street.String(),
 			Locality:      rUser.Location.City,
 			Region:        rUser.Location.State,
-			PostalCode:    rUser.Location.Postcode,
+			PostalCode:    string(rUser.Location.Postcode),
 			Country:       rUser.Nationality,
 			Primary:       true}},
 	}
