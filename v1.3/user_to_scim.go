@@ -1,8 +1,6 @@
 package randomuser // import "github.com/grokify/go-randomuser/v1.3"
 
 import (
-	"strconv"
-
 	"github.com/grokify/goauth/scim"
 )
 
@@ -31,7 +29,7 @@ func UserToScim(rUser User) scim.User {
 			StreetAddress: rUser.Location.Street.String(),
 			Locality:      rUser.Location.City,
 			Region:        rUser.Location.State,
-			PostalCode:    strconv.Itoa(rUser.Location.Postcode),
+			PostalCode:    rUser.Location.Postcode,
 			Country:       rUser.Nationality,
 			Primary:       true}},
 	}
