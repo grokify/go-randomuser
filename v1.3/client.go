@@ -100,7 +100,7 @@ func GetUsers(qry *Request) (Results, *http.Response, error) {
 	if err != nil {
 		return res, resp, err
 	} else if resp.StatusCode >= 300 {
-		return res, resp, fmt.Errorf("RandomUser API Response Status Code [%d]", resp.StatusCode)
+		return res, resp, fmt.Errorf("error on RandomUser API Response Status Code (%d)", resp.StatusCode)
 	}
 
 	bytes, err := io.ReadAll(resp.Body)
