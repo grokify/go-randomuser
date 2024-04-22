@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	randomuser "github.com/grokify/go-randomuser/v1.3"
+	randomuser "github.com/grokify/go-randomuser"
 	"github.com/grokify/goauth/hubspot"
 	"github.com/grokify/goauth/scim"
 	"github.com/grokify/mogo/encoding/jsonutil"

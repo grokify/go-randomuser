@@ -18,3 +18,7 @@ Client SDK for Random User:
 
 * Docs: https://randomuser.me/
 * API: https://randomuser.me/api
+
+This SDK currently supports the latest version of the API (currently v1.4). Previous versions are documented here:
+
+https://randomuser.me/documentation#previous
