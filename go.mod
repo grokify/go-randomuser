@@ -5,15 +5,15 @@ go 1.22
 toolchain go1.22.2
 
 require (
-	github.com/grokify/goauth v0.20.14
-	github.com/grokify/mogo v0.63.9
+	github.com/grokify/goauth v0.20.15
+	github.com/grokify/mogo v0.63.10
 	github.com/jessevdk/go-flags v1.5.0
 )
 
 require (
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
-	github.com/grokify/gocharts/v2 v2.18.5 // indirect
+	github.com/grokify/gocharts/v2 v2.18.6 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -21,6 +21,7 @@ require (
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.3 // indirect
+	github.com/stretchr/testify v1.9.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/quicktemplate v1.7.0 // indirect
 	github.com/xuri/efp v0.0.0-20240408161823-9ad904a10d6d // indirect
