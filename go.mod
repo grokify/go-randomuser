@@ -5,13 +5,13 @@ go 1.22.0
 toolchain go1.22.2
 
 require (
-	github.com/grokify/goauth v0.21.9
-	github.com/grokify/mogo v0.64.7
+	github.com/grokify/goauth v0.21.10
+	github.com/grokify/mogo v0.64.8
 	github.com/jessevdk/go-flags v1.6.1
 )
 
 require (
-	github.com/grokify/gocharts/v2 v2.19.6 // indirect
+	github.com/grokify/gocharts/v2 v2.19.8 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
