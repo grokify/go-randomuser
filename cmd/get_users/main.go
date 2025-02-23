@@ -74,7 +74,7 @@ func main() {
 	}
 
 	if len(opts.JSONFile) > 0 {
-		err := jsonutil.WriteFile(opts.JSONFile, scimSet, "", "  ", 0644)
+		err := jsonutil.MarshalFile(opts.JSONFile, scimSet, "", "  ", 0644)
 		if err != nil {
 			log.Fatal(err)
 		}
