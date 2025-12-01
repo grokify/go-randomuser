@@ -1,12 +1,10 @@
 module github.com/grokify/go-randomuser
 
-go 1.23.2
-
-toolchain go1.23.6
+go 1.24.0
 
 require (
 	github.com/grokify/goauth v0.23.6
-	github.com/grokify/mogo v0.68.1
+	github.com/grokify/mogo v0.72.0
 	github.com/jessevdk/go-flags v1.6.1
 )
 
@@ -25,11 +23,11 @@ require (
 	github.com/xuri/efp v0.0.0-20241211021726-c4e992084aa6 // indirect
 	github.com/xuri/excelize/v2 v2.9.0 // indirect
 	github.com/xuri/nfp v0.0.0-20250111060730-82a408b9aa71 // indirect
-	golang.org/x/crypto v0.34.0 // indirect
-	golang.org/x/exp v0.0.0-20250218142911-aa4b98e5adaa // indirect
-	golang.org/x/image v0.24.0 // indirect
-	golang.org/x/net v0.35.0 // indirect
+	golang.org/x/crypto v0.45.0 // indirect
+	golang.org/x/exp v0.0.0-20251125195548-87e1e737ad39 // indirect
+	golang.org/x/image v0.33.0 // indirect
+	golang.org/x/net v0.47.0 // indirect
 	golang.org/x/oauth2 v0.26.0 // indirect
-	golang.org/x/sys v0.30.0 // indirect
-	golang.org/x/text v0.22.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/text v0.31.0 // indirect
 )
